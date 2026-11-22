@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0d1014">
-    <meta name="prism-release" content="2026-11-22-scientific-audit-1">
+    <meta name="prism-release" content="2026-11-23-wecgdb-v1">
     <meta name="description" content="PRISM 心电形态图谱。沿着实测十二导联波形，探索疾病共性、同病差异，以及心电与超声、随访和腕表的联系。">
     <title>PRISM — 心电形态图谱</title>
-    <link rel="stylesheet" href="site.css?v=scientific-audit-2">
+    <link rel="stylesheet" href="site.css?v=wecgdb-20261123-1">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='11' fill='%23111518'/%3E%3Cpath d='M6 27h9l4-14 6 24 5-18 3 8h9' fill='none' stroke='%23d9f4e9' stroke-width='2.8'/%3E%3C/svg%3E">
     <script src="story.js?v=atlas-1" defer>
     </script>
@@ -481,6 +481,52 @@
             <summary>腕表读数与配对比较</summary>
             <p>SJLIFE 共 243 人，原校准角色 81 人，固定评价角色 162 人，任务支持人数范围 142–162。目标来自医院实测 I 导联，为配准坐标 200–320 窗平均电压除以 QRS 峰峰值；该段为 RR/Bazett 缩放坐标，不能当作原始逐毫秒时间。MIMIC 中拟合的读出器用于腕表，在 SJLIFE 零目标校准时，PRISM、ECGFounder、直接波形的精确 MAE 为 0.050075、0.074300、0.050081。PRISM / Founder 的 R² 为 0.535 / 0.166。两项 MAE 配对差分别为 −0.024226［−0.035065，−0.013926］（相对 Founder）与 −0.0000064［−0.0000698，0.0000577］（相对直接波形），单项 97.5% 区间给出两比较 95% 家族覆盖。研究未预设等效界值。两设备为同访异步记录。</p>
           </details>
+          <article class="wecg-panel" id="wecgdb" aria-labelledby="wecg-title" data-result-sha256="b80b4e21ec29ea0a673dd9e6605ff6ccb1db2d7aeb16154c49a2e24a09eb5d9c">
+            <div class="wecg-heading">
+              <div>
+                <p class="eyebrow">同步真人配对 / wECGdb V1</p>
+                <h3 id="wecg-title">同一个人，<br>依然更接近。</h3>
+                <p class="wecg-lead">同步的腕戴原型与临床 I 导联仍保留个体差异。0–100 研究评分尚未达到本次预设的一致性目标。</p>
+              </div>
+              <div class="wecg-coverage">
+                <p>两侧均可评分</p>
+                <strong>71.7<small>%</small></strong>
+                <p>66 / 92 人 · 95% 区间 61.8%–79.9%</p>
+                <span>报告率下界达到 60% 目标</span>
+              </div>
+            </div>
+            <figure class="wecg-comparison" aria-labelledby="wecg-chart-caption">
+              <figcaption id="wecg-chart-caption">医院与腕戴研究评分的平均绝对差（MAE）<span>越小，读数越接近 · 0–100 研究刻度</span></figcaption>
+              <div class="wecg-row wecg-same">
+                <div class="wecg-row-heading"><span>同一个人</span><strong>12.78<small> 分</small></strong></div>
+                <div class="wecg-track" aria-hidden="true">
+                  <span class="wecg-interval" style="left:21.81152910%;width:20.28448852%"></span>
+                  <span class="wecg-point" style="left:31.95377336%"></span>
+                </div>
+                <p class="wecg-ci-label">同时 95% 区间 8.72–16.84</p>
+              </div>
+              <div class="wecg-row wecg-other">
+                <div class="wecg-row-heading"><span>不同的人</span><strong>32.27<small> 分</small></strong></div>
+                <div class="wecg-track" aria-hidden="true">
+                  <span class="wecg-interval" style="left:66.18943548%;width:28.97746657%"></span>
+                  <span class="wecg-point" style="left:80.67816876%"></span>
+                </div>
+                <p class="wecg-ci-label">同时 95% 区间 26.48–38.07</p>
+              </div>
+              <div class="wecg-scale" aria-hidden="true"><span>0</span><span>10</span><span>20</span><span>30</span><span>40 分</span></div>
+            </figure>
+            <div class="wecg-reading">
+              <div><p class="eyebrow">保留个体信息</p><p>异人比同人的平均绝对差大 <b>19.49 分</b><br><span>同时 95% 区间 11.97–27.01</span></p></div>
+              <div><p class="eyebrow">一致性仍待建立</p><p>同人 MAE 的区间上界为 <b>16.84 分</b>，未达到 ≤10 分目标。区间跨过 10，仍不能断言真实误差必然超过该界限。</p></div>
+            </div>
+            <p class="wecg-scope">作者发布的腕戴波形经过平均心搏替换。这里验证的是处理后原型的单导联研究读数；尚不能推广到原生商业腕表、十二导联评分或临床诊断。</p>
+            <details class="note">
+              <summary>同步配对、评分尺度与检验方法</summary>
+              <p>固定 wECGdb V1 的 92 人分母；主条件为临床人员协助采集的 LA_A，每人一对同步记录，两侧均取同一中央 10 秒，分别使用物理 I 导联、相同冻结配准与读出器。0–100 健康分由冻结模型估计形态负担读数，再映射到 MIMIC 开发参照的反向百分位；不是患病概率，也没有把临床 I 导联当成完整十二导联评分的真值。</p>
+              <p>66 人两侧可评分，报告率采用 Wilson 95% 区间。效应区间来自 3,999 次整人重抽：两轴及健康分的同人 MAE、异人 MAE、异人减同人共 9 项使用同一 max-t 同时 95% 区间。异人比较使用同批可评分者的全部异人组合，每次重抽排除相同原始受试者；组合数不作为独立样本量。30 秒和自行采集条件仅作描述性敏感性分析。模型与尺度均冻结，没有用该队列拟合、偏移校正或按分数重新配对。</p>
+              <p>结果采用发布前修正 bootstrap 列序后的 v2。数据说明见 <a href="https://zenodo.org/records/15235775" rel="noopener" target="_blank">wECGdb 官方发布页</a>。本节与 SJLIFE 的相对电压读数是不同队列、不同终点，误差不能直接比较。</p>
+            </details>
+          </article>
           <div class="device-intro">
             <div>
               <p class="eyebrow">纵向观察 / 血红蛋白</p>
@@ -570,7 +616,11 @@
               <summary>为什么主要展示两条轴？</summary>
               <p>D1 保留最强方向，D2 保留与其正交的最大剩余结构。两条轴预先指定为主要摘要，另保留八条补充方向。799 项逐病标准化观察差异的前两轴、前十轴覆盖率分别为 19.44%、41.22%。</p>
             </details>
-            <details class="note">
+                        <details>
+              <summary>同步腕戴验证说明了什么？</summary>
+              <p>wECGdb 同步配对支持处理后腕戴原型保留个体信息，但研究健康分的同人 MAE 为 12.78［8.72，16.84］分，尚未达到区间上界 ≤10 分目标。66/92 人可评分，报告率下界超过 60%。两侧都由冻结的单导联模型计分，这不是完整十二导联健康分或临床健康状态的验证。</p>
+            </details>
+<details class="note">
               <summary>页面里的波形分别比较谁？</summary>
               <p>开场是心衰两组患者在各导联的平均心搏之差，曲线作空间错位以便观看。糖尿病示例展示同病两组各自的均值，再相减。跨疾病分析的对象是每种疾病的病例与规则定义的参考人群，参考人群可能患有其他疾病。</p>
             </details>

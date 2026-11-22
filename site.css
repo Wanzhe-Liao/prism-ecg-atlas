@@ -293,3 +293,39 @@ footer small {display:inline-block;font:12px/1.5 -apple-system,sans-serif;letter
 .risk-absolute { margin: 14px 0 0; font-size: 15px; letter-spacing: -.01em; color: var(--ink); }
 .risk-absolute b { font-weight: 600; }
 .readout-limit { max-width: 800px; margin: 18px 0 30px; color: var(--muted); font-size: 15px; line-height: 1.8; }
+
+
+/* Synchronous human wrist validation: aggregate evidence, same frozen curves. */
+.wecg-panel {margin:clamp(56px,8vw,110px) 0;padding:clamp(24px,4.5vw,58px);background:#edf1e9;border:1px solid #d2dbcf;border-radius:26px;scroll-margin-top:calc(var(--nav) + 24px)}
+.wecg-heading {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:42px;align-items:end}
+.wecg-heading h3 {font-size:clamp(34px,4.9vw,64px);line-height:1.17;letter-spacing:-.055em;font-weight:520}
+.wecg-lead {max-width:36em;margin-top:22px;color:var(--muted);font-size:16px;line-height:1.85}
+.wecg-coverage {padding:22px 0 4px 28px;border-left:1px solid #becabd;min-width:260px;font-size:12px;color:var(--muted)}
+.wecg-coverage>p:first-child {font-size:14px;color:var(--ink)}
+.wecg-coverage>strong {display:block;font-size:clamp(52px,6.2vw,82px);line-height:1.35;letter-spacing:-.065em;font-weight:500;color:var(--accent);font-variant-numeric:tabular-nums}
+.wecg-coverage>strong small {font-size:.4em;letter-spacing:0;margin-left:3px}
+.wecg-coverage>span {display:inline-block;margin-top:14px;border:1px solid #bbcbbb;border-radius:20px;padding:5px 11px;color:#2d5749}
+.wecg-comparison {margin-top:44px;padding-top:26px;border-top:1px solid #becabd}
+.wecg-comparison figcaption {font-size:15px;font-weight:550}
+.wecg-comparison figcaption>span {display:block;margin-top:4px;font-size:12px;font-weight:400;color:var(--muted)}
+.wecg-row {margin-top:24px}
+.wecg-row-heading {display:flex;align-items:baseline;justify-content:space-between;gap:18px;font-size:15px}
+.wecg-row-heading strong {font-size:30px;line-height:1;font-weight:500;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.wecg-row-heading strong small {font-size:12px;letter-spacing:0;font-weight:400}
+.wecg-track {position:relative;height:33px;margin-top:5px;border-bottom:1px solid #b9c5ba;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(25% - 1px),#d2dbcf calc(25% - 1px),#d2dbcf 25%)}
+.wecg-interval {position:absolute;top:14px;height:5px;border-radius:5px;background:#719c87}
+.wecg-interval:before,.wecg-interval:after {content:"";position:absolute;top:-4px;height:13px;width:1px;background:var(--accent)}
+.wecg-interval:before {left:0}.wecg-interval:after {right:0}
+.wecg-point {position:absolute;top:10px;width:13px;height:13px;border:2px solid #edf1e9;border-radius:50%;background:#244f42;transform:translateX(-50%)}
+.wecg-other .wecg-interval {background:#a3aaa2}
+.wecg-other .wecg-interval:before,.wecg-other .wecg-interval:after {background:#68736b}
+.wecg-other .wecg-point {background:#66716a}
+.wecg-ci-label {font-size:12px;color:var(--muted);margin-top:7px;font-variant-numeric:tabular-nums}
+.wecg-scale {display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:15px;font-variant-numeric:tabular-nums}
+.wecg-reading {display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:32px;padding-top:25px;border-top:1px solid #becabd}
+.wecg-reading .eyebrow {font-size:11px;margin-bottom:10px;color:var(--accent)}
+.wecg-reading p+p {font-size:15px;line-height:1.8}
+.wecg-reading p span {font-size:12px;color:var(--muted)}
+.wecg-scope {font-size:13px;line-height:1.85;color:var(--muted);margin:26px 0}
+.wecg-panel .note {border-color:#becabd}
+@media(max-width:800px) {.wecg-heading {grid-template-columns:1fr;gap:24px}.wecg-coverage {min-width:0;padding:18px 0 0;border-left:0;border-top:1px solid #becabd}.wecg-coverage>strong {font-size:58px}.wecg-reading {grid-template-columns:1fr;gap:22px}.wecg-lead {font-size:14px}.wecg-panel {border-radius:18px}.wecg-comparison {margin-top:30px}}
