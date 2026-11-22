@@ -292,4 +292,4 @@ footer small {display:inline-block;font:12px/1.5 -apple-system,sans-serif;letter
 
 .risk-absolute { margin: 14px 0 0; font-size: 15px; letter-spacing: -.01em; color: var(--ink); }
 .risk-absolute b { font-weight: 600; }
-.readout-limit { max-width: 800px; margin: 18px 0 30px; color: #c2c7d1; font-size: 15px; line-height: 1.8; }
+.readout-limit { max-width: 800px; margin: 18px 0 30px; color: var(--muted); font-size: 15px; line-height: 1.8; }
